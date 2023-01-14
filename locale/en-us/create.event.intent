@@ -1,0 +1,2 @@
+create event {name} (for the|on|for) {date}
+create appointment {name} (for the|on|for) {date}
