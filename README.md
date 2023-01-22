@@ -1,3 +1,22 @@
-Test
+# <img src="https://raw.githack.com/FortAwesome/Font-Awesome/master/svgs/solid/calendar.svg" card_color="#22A7F0" width="50" height="50" style="vertical-align:bottom"/> Si Calendar
+Manages your calendar
 
-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
+## About
+Connects to your calendar via caldav and let's you organize appointments.
+
+## Examples
+* "What are my appointments today?"
+* "Calendar"
+
+## Credits
+adjustToAuthorsName
+
+## Category
+**Productivity**
+Daily
+
+## Tags
+#Calendar
+
+
+Github Token: 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
