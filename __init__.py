@@ -18,8 +18,8 @@ class SiCalendar(MycroftSkill):
         # student user name
         user_name = "test"
         
-        username = self.settings.get('Username')
-        password = self.settings.get('Password')
+        username = self.settings.get('username')
+        password = self.settings.get('password')
         
         # this file stores my nextcloud username information
         # user_file = open(root + "si-calendar-skill." + user_name + "/unFile.txt", "r")

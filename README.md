@@ -1,3 +1,3 @@
 Test
 
-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
+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
