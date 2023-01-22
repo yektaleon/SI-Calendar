@@ -263,6 +263,8 @@ class SiCalendar(MycroftSkill):
      
     # this function is called after __init__. The settingsmeta.yaml file has to be read here, after __init__ has been completed
     def initialize(self):
+        self.settings_change_callback = self.on_settings_changed
+        self.on_settings_changed()
         # Log into nextcloud
         self.calendar = self.log_in()
         # Set user local timezone
