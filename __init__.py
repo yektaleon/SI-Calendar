@@ -18,10 +18,10 @@ class SiCalendar(MycroftSkill):
         # student user name
         user_name = "test"
         
-        self.username = self.settings.get('username')
+        self.username = self.settings.get('username', 'yk020@hdm-stuttgart.de')
         if not self.username:
            self.log.info('Failed to retrieve username')
-        self.password = self.settings.get('password')
+        self.password = self.settings.get('password', 'SIPasswortyk020')
         if not self.password:
            self.log.info('Failed to retrieve password')
         
