@@ -1,2 +1,3 @@
 create event {name} (for the|on|for) {date}
 create appointment {name} (for the|on|for) {date}
+make an appointment {name} (for the|on|for) {date}
