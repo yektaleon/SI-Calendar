@@ -1,3 +1,3 @@
+list my events (on|for|) {date}
 (what are|list) my (events|appointments) (on|for|) {date}
-(what are|list) my next events (on|for|) {date}
-what is coming up (on|for|) {date}
+upcoming events (on|for|) {date}
