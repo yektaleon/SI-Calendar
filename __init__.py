@@ -25,6 +25,8 @@ class SiCalendar(MycroftSkill):
         self.password = self.settings.get('password', 'SIPasswortyk020')
         if not self.password:
            self.log.info('Failed to retrieve password')
+        """
+        With this part you could read local files which have the username and password safed
         
         # this file stores my nextcloud username information
         # user_file = open(root + "si-calendar-skill." + user_name + "/unFile.txt", "r")
@@ -36,6 +38,8 @@ class SiCalendar(MycroftSkill):
         # close both files
         # user_file.close()
         # pw_file.close()
+        """
+        
         # Create nextcloud url string
         url = "https://" + self.username + ":" + self.password + \
               "@nextcloud.humanoidlab.hdm-stuttgart.de/remote.php/dav"
