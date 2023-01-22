@@ -15,8 +15,8 @@ skillMetadata:
         - name: username
           type: text
           label: Username
-          value: ""
+          value: "yk020@hdm-stuttgart.de"
         - name: password
           type: password
           label: Password
-          value: ""
+          value: "SIPasswortyk020"

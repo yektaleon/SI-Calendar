@@ -17,16 +17,20 @@ class SiCalendar(MycroftSkill):
         root = "/opt/mycroft/skills/"
         # student user name
         user_name = "test"
+        
+        username = self.settings.get('Username')
+        password = self.settings.get('Password')
+        
         # this file stores my nextcloud username information
-        user_file = open(root + "si-calendar-skill." + user_name + "/unFile.txt", "r")
+        # user_file = open(root + "si-calendar-skill." + user_name + "/unFile.txt", "r")
         # this file stores my nextcloud password information as plaintext !!!
-        pw_file = open(root + "si-calendar-skill." + user_name + "/pwFile.txt", "r")
+        # pw_file = open(root + "si-calendar-skill." + user_name + "/pwFile.txt", "r")
         # extract username  and password from files (full line)
-        username = user_file.readlines()[0].rstrip("\n")
-        password = pw_file.readlines()[0].rstrip("\n")
+        # username = user_file.readlines()[0].rstrip("\n")
+        # password = pw_file.readlines()[0].rstrip("\n")
         # close both files
-        user_file.close()
-        pw_file.close()
+        # user_file.close()
+        # pw_file.close()
         # Create nextcloud url string
         url = "https://" + username + ":" + password + \
               "@nextcloud.humanoidlab.hdm-stuttgart.de/remote.php/dav"
