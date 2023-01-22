@@ -1,4 +1,3 @@
-i've found the following events {events}
-your upcoming events are {events}
-your next events are {events}
-your calendar has following events {events}
+I have found the following events for this date {events}
+Your upcoming events for this date are {events}
+For the upcoming date I have found this events {events}
