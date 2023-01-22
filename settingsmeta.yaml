@@ -3,6 +3,10 @@ skillMetadata:
   sections:
     - name: Login
       fields:
+        - name: caldav_service
+          type: text
+          label: Enter URL of your caldav service
+          value: ""
         - name: username
           type: email
           label: Enter your Login Email
