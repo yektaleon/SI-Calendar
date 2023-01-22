@@ -1,3 +1,4 @@
-there are no events for {date}
-i could not find any events for {date}
-no events are planned for {date}
+No events are scheduled for {date}
+I could not find any events for {date}
+There are no events scheduled for {date}
+There are no planned events for {date}
