@@ -36,7 +36,7 @@ class SiCalendar(MycroftSkill):
         # user_file.close()
         # pw_file.close()
         # Create nextcloud url string
-        url = "https://" + username + ":" + password + \
+        url = "https://" + self.username + ":" + self.password + \
               "@nextcloud.humanoidlab.hdm-stuttgart.de/remote.php/dav"
 
         # open connection to calendar
