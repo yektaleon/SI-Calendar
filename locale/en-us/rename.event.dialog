@@ -1,1 +1,3 @@
-the appointment has been saved as {name}
+The appointment has been saved as {name}
+The event has been renamed as {name}
+The new name for your appointment is {name}
