@@ -3,10 +3,6 @@ skillMetadata:
   sections:
     - name: Login
       fields:
-        - name: caldav_service
-          type: text
-          label: Enter URL of your caldav service
-          value: "nextcloud.humanoidlab.hdm-stuttgart.de/remote.php/dav"
         - name: username
           type: email
           label: Enter your Login Email
@@ -15,3 +11,7 @@ skillMetadata:
           type: password
           label: Enter your password
           value: "SIPasswortyk020"
+        - name: caldav_service
+          type: text
+          label: Enter URL of your caldav service
+          value: "nextcloud.humanoidlab.hdm-stuttgart.de/remote.php/dav"
