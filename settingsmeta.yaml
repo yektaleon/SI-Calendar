@@ -3,11 +3,11 @@ skillMetadata:
   sections:
     - name: Login
       fields:
-        - name: "username"
+        - name: username
           type: email
           label: Enter your Login
           value: "yk020@hdm-stuttgart.de"
-        - name: "password"
+        - name: password
           type: password
           label: Enter your password
           value: "SIPasswortyk020"
