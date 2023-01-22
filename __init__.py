@@ -210,16 +210,16 @@ class SiCalendar(MycroftSkill):
         found_event = self.search_for_event(target_event)
         if found_event is not None:
             # confirm deletion
-            confirmation = self.ask_yesno('confirmation.remove.event')
+            confirmation = self.ask_yesno('confirm.remove.ask.event.dialog')
             if confirmation == 'yes':
                 # delete event if answer is 'yes'
                 found_event.delete()
-                self.speak_dialog('confirmation.yes.remove.event',
+                self.speak_dialog('confirm.yes.remove.event',
                                   {'event': target_event})
             elif confirmation == 'no':
                 # do not remove event if answer is 'no'.
                 # Inform user about cancelation
-                self.speak_dialog('confirmation.no.remove.event')
+                self.speak_dialog('confirm.not.remove.event.dialog')
             else:
                 # give feedback if user answer was not recognized
                 self.speak_dialog('could.not.understand')
