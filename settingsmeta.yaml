@@ -6,7 +6,7 @@ skillMetadata:
         - name: caldav_service
           type: text
           label: Enter URL of your caldav service
-          value: ""
+          value: "nextcloud.humanoidlab.hdm-stuttgart.de/remote.php/dav"
         - name: username
           type: email
           label: Enter your Login Email
