@@ -11,7 +11,3 @@ skillMetadata:
           type: password
           label: Enter your password
           value: "SIPasswortyk020"
-        - name: caldav_service
-          type: text
-          label: Enter URL of your caldav service
-          value: "nextcloud.humanoidlab.hdm-stuttgart.de/remote.php/dav"
