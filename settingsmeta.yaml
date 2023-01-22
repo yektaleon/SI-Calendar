@@ -5,7 +5,7 @@ skillMetadata:
       fields:
         - name: username
           type: email
-          label: Enter your Login Email
+          label: Enter your Login
           value: "yk020@hdm-stuttgart.de"
         - name: password
           type: password
