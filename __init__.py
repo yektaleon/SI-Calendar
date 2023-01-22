@@ -18,26 +18,41 @@ class SiCalendar(MycroftSkill):
         # student user name
         user_name = "test"
         
+        # reading login parameters and calender backend from our settings file
+        
+        # readout caldav backend (Nextcloud)
+        self.caldav = self.settings.get('caldav_service', 'nextcloud.humanoidlab.hdm-stuttgart.de/remote.php/dav')
+        if not self.caldav:
+           self.log.info('Failed to retrieve caldav service URL')
+        
+        # readout username
         self.username = self.settings.get('username', 'yk020@hdm-stuttgart.de')
         if not self.username:
            self.log.info('Failed to retrieve username')
+        
+        # readout username
         self.password = self.settings.get('password', 'SIPasswortyk020')
         if not self.password:
            self.log.info('Failed to retrieve password')
         
+        """
+        optionally we can read the username and password from local files
+        
         # this file stores my nextcloud username information
-        # user_file = open(root + "si-calendar-skill." + user_name + "/unFile.txt", "r")
+        user_file = open(root + "si-calendar-skill." + user_name + "/unFile.txt", "r")
         # this file stores my nextcloud password information as plaintext !!!
-        # pw_file = open(root + "si-calendar-skill." + user_name + "/pwFile.txt", "r")
+        pw_file = open(root + "si-calendar-skill." + user_name + "/pwFile.txt", "r")
         # extract username  and password from files (full line)
-        # username = user_file.readlines()[0].rstrip("\n")
-        # password = pw_file.readlines()[0].rstrip("\n")
+        username = user_file.readlines()[0].rstrip("\n")
+        password = pw_file.readlines()[0].rstrip("\n")
         # close both files
-        # user_file.close()
-        # pw_file.close()
+        user_file.close()
+        pw_file.close()
+        """
+        
         # Create nextcloud url string
         url = "https://" + self.username + ":" + self.password + \
-              "@nextcloud.humanoidlab.hdm-stuttgart.de/remote.php/dav"
+              "@" + self.caldav
 
         # open connection to calendar
         principal = caldav.DAVClient(url).principal()
@@ -47,6 +62,7 @@ class SiCalendar(MycroftSkill):
         main_calendar = calendars[0]
         return main_calendar
 
+    # this function orders all events by date and time
     def sort_events(self):
         # Retrieve current time
         t = datetime.datetime.now()
@@ -61,32 +77,33 @@ class SiCalendar(MycroftSkill):
         # Sort the events
         events_sorted.sort()
         # Extract future and todays events
-        results_future = []
-        results_today = []
+        future = []
+        today = []
         for event in events_sorted:
             if event.begin.date() > t.date():
-                results_future.append(event)
+                future.append(event)
             if event.begin.date() == t.date():
-                results_today.append(event)
+                today.append(event)
 
-        return results_today, results_future
+        return today, future
 
+    # this function is called when the user calls for upcoming events
     @intent_file_handler('get.all.events.intent')
     def get_all_events(self):
         # Save extracted events in string
         collected_events = ""
-        results_today, results_future = self.sort_events()
+        today, future = self.sort_events()
 
         # Get current time to filter for only upcoming events
         t = datetime.datetime.now()
-        if len(results_today) != 0:
-            for e in results_today:
+        if len(today) != 0:
+            for e in today:
                 if e.begin.time().hour >= t.hour:
                     collected_events += f"Event '{e.name}' " \
                                         f"on {e.begin.date()}. "
 
-        if len(results_future) != 0:
-            for e in results_future:
+        if len(future) != 0:
+            for e in future:
                 collected_events += f"Event '{e.name}' on {e.begin.date()}. "
 
         # Return dialog if upcoming events exist
@@ -95,20 +112,19 @@ class SiCalendar(MycroftSkill):
         else:
             self.speak_dialog('no.events')
 
+    # this function is called when the user wants to create a new event
     @intent_file_handler('create.event.intent')
     def create_event(self, message):
         # Name of the event to be created
         name = message.data.get('name')
         # Following variables describe the date specification and duration
-        extracted_datetime = extract_datetime(message.data['utterance'],
-                                              new_date.now(self.timezone))[0]
+        extracted_datetime = extract_datetime(message.data['utterance'], new_date.now(self.timezone))[0]
         start_time = self.get_response('get.start.time')
-        extracted_start_time = extract_datetime(start_time,
-                                                new_date.now(self.timezone))[0]
+        extracted_start_time = extract_datetime(start_time, new_date.now(self.timezone))[0]
         end_time = self.get_response('get.end.time')
-        extracted_end_time = extract_datetime(end_time,
-                                              new_date.now(self.timezone))[0]
+        extracted_end_time = extract_datetime(end_time, new_date.now(self.timezone))[0]
 
+        # checks if event date is in the past
         if extracted_end_time.hour >= extracted_start_time.hour:
             if extracted_end_time.hour == extracted_start_time.hour and \
                     extracted_end_time.minute <= extracted_start_time.minute:
@@ -133,6 +149,7 @@ class SiCalendar(MycroftSkill):
             self.speak_dialog('create.event.cancel')
 
 
+    # this function checks for events for the given date
     @intent_file_handler('get.events.on.date.intent')
     def get_events_for_date(self, message):
         # Extract specified date from input
@@ -155,27 +172,28 @@ class SiCalendar(MycroftSkill):
         else:
             self.speak_dialog('get.events.on.date', {'events': event_str})
 
+    #this function gets the next upcoming event
     @intent_file_handler('get.next.event.intent')
     def get_next_event(self):
         result = None
         # Extract future events to check against next event
-        results_today, results_future = self.sort_events()
+        today, future = self.sort_events()
 
         # Retrieve current date to check for next event
         t = datetime.datetime.now()
         # Check if next event is today
-        if len(results_today) != 0:
-            for e in results_today:
+        if len(today) != 0:
+            for e in today:
                 if e.begin.time().hour >= t.hour:
                     result = e
                 else:
                     # If there is a result in today, but the time is in the past, return the next event on another day
-                    if len(results_future) != 0:
-                        result = results_future[0]
+                    if len(future) != 0:
+                        result = future[0]
         else:
             # If event is not today, first next event is selected if it exists
-            if len(results_future) != 0:
-                result = results_future[0]
+            if len(future) != 0:
+                result = future[0]
         # Feedback to user depending on result state
         if result is not None:
             # Inform user about found event
@@ -197,6 +215,7 @@ class SiCalendar(MycroftSkill):
                     found_event = event
         return found_event
 
+    # this function removes a given event
     @intent_file_handler('remove.event.intent')
     def remove_event(self, message):
         # Get name of event to be removed
@@ -221,6 +240,7 @@ class SiCalendar(MycroftSkill):
         else:
             self.speak_dialog('no.events', {'event': target_event})
 
+    # this function is used to rename a given event
     @intent_file_handler('rename.event.intent')
     def rename_event(self, message):
         # Retrieve event name and new name
@@ -236,9 +256,11 @@ class SiCalendar(MycroftSkill):
             # Inform user that event to be renamed does not exist
             self.speak_dialog('no.events')
 
+    # this is the first function called (constructor)
     def __init__(self):
         MycroftSkill.__init__(self)
      
+    # this function is called after __init__. The settingsmeta.yaml file has to be read here, after __init__ has been completed
     def initialize(self):
         # Log into nextcloud
         self.calendar = self.log_in()
