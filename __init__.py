@@ -26,7 +26,7 @@ class SiCalendar(MycroftSkill):
            self.log.info('Failed to retrieve caldav service URL')
         
         # readout username
-        self.username = self.settings.get('username)
+        self.username = self.settings.get('username')
         if not self.username:
            self.log.info('Failed to retrieve username')
         
