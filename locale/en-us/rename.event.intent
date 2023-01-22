@@ -1,1 +1,1 @@
-rename (event|appointment) {event} to {new_name}
+(rename|retitle) (event|appointment) {event} to {new_name}
