@@ -1,2 +1,3 @@
-there is no event named {event}
-i could not find that event in your calendar
+No such event exists.
+I could not find {event} in your calendar.
+There is no {event} in your calendar.
