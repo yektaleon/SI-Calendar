@@ -17,7 +17,6 @@ class SiCalendar(MycroftSkill):
         root = "/opt/mycroft/skills/"
         # student user name
         user_name = "test"
-        self.caldav = "nextcloud.humanoidlab.hdm-stuttgart.de/remote.php/dav"
         
         # reading login parameters and calender backend from our settings file
         
@@ -55,7 +54,7 @@ class SiCalendar(MycroftSkill):
         
         # Create nextcloud url string
         url = "https://" + self.username + ":" + self.password + \
-              "@" + self.caldav
+              "@nextcloud.humanoidlab.hdm-stuttgart.de/remote.php/dav"
 
         # open connection to calendar
         principal = caldav.DAVClient(url).principal()
