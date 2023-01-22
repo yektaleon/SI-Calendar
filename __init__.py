@@ -15,7 +15,7 @@ class SiCalendar(MycroftSkill):
         
         # this is my deployement path
         root = "/opt/mycroft/skills/"
-        # student user name (test)
+        # student user name
         user_name = "test"
         
         self.username = self.settings.get('username')
