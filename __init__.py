@@ -270,6 +270,8 @@ class SiCalendar(MycroftSkill):
         # Set user local timezone
         self.timezone = default_timezone()
     def on_settings_changed(self):
+        self.username = self.settings.get('username')
+        self.password = self.settings.get('password')
         
 
 
