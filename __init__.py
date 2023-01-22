@@ -17,13 +17,16 @@ class SiCalendar(MycroftSkill):
         root = "/opt/mycroft/skills/"
         # student user name
         user_name = "test"
+        self.caldav = "nextcloud.humanoidlab.hdm-stuttgart.de/remote.php/dav"
         
         # reading login parameters and calender backend from our settings file
         
+        """
         # readout caldav backend (Nextcloud)
         self.caldav = self.settings.get('caldav_service', 'nextcloud.humanoidlab.hdm-stuttgart.de/remote.php/dav')
         if not self.caldav:
            self.log.info('Failed to retrieve caldav service URL')
+        """
         
         # readout username
         self.username = self.settings.get('username')
