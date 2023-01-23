@@ -34,8 +34,8 @@ class SiCalendarYekta(MycroftSkill):
         # username = userName_file.readlines()[0].rstrip("\n")
         # password = passw_file.readlines()[0].rstrip("\n")
         # close both files
-        # user_file.close()
-        # pw_file.close()
+        # userName_file.close()
+        # passw_file.close()
         """
         
         # Create nextcloud url string
