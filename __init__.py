@@ -41,9 +41,16 @@ class SiCalendarYekta(MycroftSkill):
         passw_file.close()
         
         
+         # Create nextcloud url string
+        url = "https://" + username + ":" + password + \
+              "@nextcloud.humanoidlab.hdm-stuttgart.de/remote.php/dav"
+        
+        
+        """
         # Create nextcloud url string
         url = "https://" + self.username + ":" + self.password + \
               "@nextcloud.humanoidlab.hdm-stuttgart.de/remote.php/dav"
+        """      
 
         # open connection to calendar
         principal = caldav.DAVClient(url).principal()
