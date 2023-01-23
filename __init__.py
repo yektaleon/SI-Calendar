@@ -4,6 +4,7 @@ from mycroft.util.time import default_timezone
 from datetime import datetime as new_date
 import caldav
 import datetime
+import yaml
 from ics import Calendar
 
 
@@ -12,7 +13,7 @@ class SiCalendarYekta(MycroftSkill):
     def log_in(self):
         
         # this is my deployement path
-        root = "/opt/mycroft/skills/"
+        root = "/userFiles/"
         # student user name
         user_name = "test"
         
