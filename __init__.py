@@ -248,10 +248,10 @@ class SiCalendarYekta(MycroftSkill):
             # Inform user that event to be renamed does not exist
             self.speak_dialog('no.events')
 
-    """
+    
     def __init__(self):
         MycroftSkill.__init__(self)
-     
+    """ 
     def initialize(self):
         # Log into nextcloud
         self.calendar = self.log_in()
