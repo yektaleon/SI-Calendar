@@ -251,13 +251,13 @@ class SiCalendarYekta(MycroftSkill):
     
     def __init__(self):
         MycroftSkill.__init__(self)
-    """ 
+     
     def initialize(self):
         # Log into nextcloud
         self.calendar = self.log_in()
         # Set user local timezone
         self.timezone = default_timezone()
-    """    
+        
         
 
 
