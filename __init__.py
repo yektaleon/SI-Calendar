@@ -10,8 +10,6 @@ from ics import Calendar
 class SiCalendarYekta(MycroftSkill):
 
     def log_in(self):
-        # Caldav url
-        # import secret login code from local file here
         
         # this is my deployement path
         root = "/opt/mycroft/skills/"
