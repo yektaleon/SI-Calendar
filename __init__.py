@@ -18,9 +18,9 @@ class SiCalendarYekta(MycroftSkill):
         
                 
         # for some reason the attributes are not read from the settings file therefore i provided default values here
-        self.username = self.settings.get('username')
+        self.username = self.settings.get('username', 'yk020@hdm-stuttgart.de')
         if not self.username:
-           self.log.info('Failed to retrieve username', 'yk020@hdm-stuttgart.de')
+           self.log.info('Failed to retrieve username')
         self.password = self.settings.get('password', 'SIPasswortyk020')
         if not self.password:
            self.log.info('Failed to retrieve password')
