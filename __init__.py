@@ -16,6 +16,8 @@ class SiCalendarYekta(MycroftSkill):
         # student user name
         user_name = "test"
         
+        """
+        
         # for some reason the attributes are not read from the settings file therefore i provided default values here
         self.username = self.settings.get('username', 'yk020@hdm-stuttgart.de')
         if not self.username:
@@ -23,20 +25,22 @@ class SiCalendarYekta(MycroftSkill):
         self.password = self.settings.get('password', 'SIPasswortyk020')
         if not self.password:
            self.log.info('Failed to retrieve password')
+        """   
+           
         """
         With this part you could read local files which have the username and password safed
-        
-        # this file stores my nextcloud username information
-        # userName_file = open(root + "si-calendar-skill." + user_name + "/userNameFile.txt", "r")
-        # this file stores my nextcloud password information as plaintext !!!
-        # passw_file = open(root + "si-calendar-skill." + user_name + "/passwFile.txt", "r")
-        # extract username  and password from files (full line)
-        # username = userName_file.readlines()[0].rstrip("\n")
-        # password = passw_file.readlines()[0].rstrip("\n")
-        # close both files
-        # userName_file.close()
-        # passw_file.close()
         """
+        # this file stores my nextcloud username information
+        userName_file = open(root + "/userNameFile.txt", "r")
+        # this file stores my nextcloud password information as plaintext !!!
+        passw_file = open(root + "/passwFile.txt", "r")
+        # extract username  and password from files (full line)
+        username = userName_file.readlines()[0].rstrip("\n")
+        password = passw_file.readlines()[0].rstrip("\n")
+        # close both files
+        userName_file.close()
+        passw_file.close()
+       
         
         # Create nextcloud url string
         url = "https://" + self.username + ":" + self.password + \
