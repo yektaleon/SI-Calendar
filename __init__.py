@@ -29,17 +29,16 @@ class SiCalendarYekta(MycroftSkill):
         """
         With this part you could read local files which have the username and password safed
         """
-        try:
-    # Open and read the username and password files
-    with open("/opt/mycroft/skills/si-calendar-skill.test/userFiles/userNameFile.txt", "r") 
-    as user_file, open("/opt/mycroft/skills/si-calendar-skill.test/userFiles/passwFile.txt", "r") as pass_file:
-        username = user_file.read().strip()
-        password = pass_file.read().strip()
-    except FileNotFoundError:
-    # Handle the case where the files are not found
-    # and ask the user to provide the username and password
-    username = input("Enter your username: ")
-    password = input("Enter your password: ")
+        # this file stores my nextcloud username information
+        userName_file = open("/opt/mycroft/skills/si-calendar-skill.test/userFiles/userNameFile.txt", "r")
+        # this file stores my nextcloud password information as plaintext !!!
+        passw_file = open("/opt/mycroft/skills/si-calendar-skill.test/userFiles/passwFile.txt", "r")
+        # extract username  and password from files (full line)
+        username = userName_file.readlines()[0].rstrip("\n")
+        password = passw_file.readlines()[0].rstrip("\n")
+        # close both files
+        userName_file.close()
+        passw_file.close()
 
         
         
