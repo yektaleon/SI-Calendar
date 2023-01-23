@@ -6,8 +6,8 @@ skillMetadata:
         - name: username
           type: email
           label: Enter your Login
-          value: "yk020@hdm-stuttgart.de"
+          value: ""
         - name: password
           type: password
           label: Enter your password
-          value: "SIPasswortyk020"
+          value: ""
