@@ -12,7 +12,7 @@ class SiCalendarYekta(MycroftSkill):
     def log_in(self):
         
         # this is my deployement path
-        root = "/userFiles/"
+        root = "home/pi/userFiles/"
         # student user name
         user_name = "test"
         
