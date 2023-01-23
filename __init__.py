@@ -4,7 +4,6 @@ from mycroft.util.time import default_timezone
 from datetime import datetime as new_date
 import caldav
 import datetime
-import yaml
 from ics import Calendar
 
 
