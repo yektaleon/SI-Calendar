@@ -7,7 +7,7 @@ import datetime
 from ics import Calendar
 
 
-class SiCalendar(MycroftSkill):
+class SiCalendarYekta(MycroftSkill):
 
     def log_in(self):
         # Caldav url
@@ -253,4 +253,4 @@ class SiCalendar(MycroftSkill):
 
 
 def create_skill():
-    return SiCalendar()
+    return SiCalendarYekta()
