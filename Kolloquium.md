@@ -106,7 +106,24 @@ kriegt auch bei erfolgreicher umbennenung eine Nachricht oder bei einem Fehler a
 
 - def create_skill(): Gibt uns unseren erstellten Skill zurück
 
+# Fehler und Probleme
 
+Eines der größten Probleme welche ich bei diesem Projekt hatte war das ich den Umfang unterschätzt habe und dachte ich könnte die Aufgaben alleine erledigen.
+Dies führte dazu das ich neben den anderen Projekten und Abgaben im Studium oft hinterher hing und probleme mit dem Zeitmanagement hatte.
+Zudem fiel es mir oft schwer Probleme allein zu lösen. Die Wiki half dabei jedoch oft gut aus.
+
+Oftmals fehlte eine zweite Meinung oder eine weitere Angehensweise. Hier versuchte ich andere vorhandene Skills als Beispiele zu nehmen und schaute wie diese Implementiert wurden.
+
+Ein weiteres Problem was ich hatte war das ich zu spät die Log Files überprüft habe bei Fehlermeldungen. Ich habe so viel Zeit verloren da ich die Probleme 
+nicht lösen konnte da ich nicht wusste wo der Fehler lag. Nachdem ich mir die Log files angeschaut habe mit dem Befehl tail -f /var/log/mycroft/skills.log
+konnte ich viel schneller meine Probleme lösen.
+
+Die in der Wiki beschriebenen Probleme die oft auftreten sind bei mir ebenfalls aufgetretetn diese konnte ich jedoch dank der Wiki relativ schnell lösen.
+
+Ein weiteres Problem das ich hatte war das ich auf die harte Tour lernen musste das Linux beim Löschen von Dateien nicht verzeiht. Ich habe dadurch den Skill gelöscht
+gehabt und einige Probleme bei der reinstallation gehabt. So konnte ich einige Zeit das mycroft-cli-client nicht starten und musste den Raspberry Pi oft rebooten.
+
+Auch bei der Implementierung hat es oft mehrere Anläufe gebraucht und es mussten ständig optimierungen vorgenommen werden. 
 
 
 
