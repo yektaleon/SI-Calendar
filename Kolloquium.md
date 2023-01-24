@@ -5,12 +5,12 @@
 # Einleitung
 
 Genutzte Hardware: 
-		- LABIST Starter Kit Raspberyy Pi4
-		- Lautsprecher
-		- Logitech c270 Webcam (als Mikrofon)
-		- Tastatur
-		- Display
-		- LAN-Kabel
+- LABIST Starter Kit Raspberyy Pi4
+- Lautsprecher
+- Logitech c270 Webcam (als Mikrofon)
+- Tastatur
+- Display
+- LAN-Kabel
 
 Zu anfang wird der Raspberry Pi angeschlossen und die weitere Hardware (Mikrofon in form von der Webcam, Tastatur, Display usw.)
 Nachdem der Raspberyy Pi strom hat und die nötige Hardware angeschlossen wurde kann mit der Einrichtung begonnen werden.
