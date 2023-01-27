@@ -11,3 +11,8 @@ skillMetadata:
           type: password
           label: Enter your password
           value: ""
+        - name: nextcloud
+          type: text
+          label: Enter your NextCloud URL
+          value: ""
+          
