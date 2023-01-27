@@ -22,7 +22,10 @@ class SiCalendarYekta(MycroftSkill):
         self.password = self.settings.get('password')
         # self.password = self.settings.get('password', 'SIPasswortyk020')
         if not self.password:
-           self.log.info('Failed to retrieve password')    
+           self.log.info('Failed to retrieve password')
+        self.nextcloud = self.settings.get('nextcloud')
+        if not self.nextcloud:
+           self.log.info('Failed to retrieve username')
            
         """
         With this part you could read local files which have the username and password safed
@@ -36,19 +39,15 @@ class SiCalendarYekta(MycroftSkill):
         # close both files
         userName_file.close()
         passw_file.close()
-        """
-
-        """ 
         
          # Create nextcloud url string
         url = "https://" + username + ":" + password + \
               "@nextcloud.humanoidlab.hdm-stuttgart.de/remote.php/dav"
-        
-        
         """
+        
+        
         # Create nextcloud url string
-        url = "https://" + self.username + ":" + self.password + \
-              "@nextcloud.humanoidlab.hdm-stuttgart.de/remote.php/dav"
+        url = "https://" + self.username + ":" + self.password + "@" + self.nextcloud
          
 
         # open connection to calendar
