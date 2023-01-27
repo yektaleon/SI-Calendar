@@ -14,7 +14,7 @@ class SiCalendarYekta(MycroftSkill):
         # this is my deployement path not used currently but possible
         # userFilesPath = "/opt/mycroft/skills/si-calendar.yektaleon/userFiles/"
                      
-        # for some reason the attributes are not read from the settings file therefore i provided default values here
+        # We extract the sername, password and NextCloud URL from the Mycroft settings file
         self.username = self.settings.get('username')
         # self.username = self.settings.get('username', 'yk020@hdm-stuttgart.de')
         if not self.username:
