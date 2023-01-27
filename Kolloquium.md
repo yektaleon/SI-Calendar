@@ -5,126 +5,126 @@
 # Einleitung
 
 Genutzte Hardware: 
-- LABIST Starter Kit Raspberyy Pi4
+- LABIST Starter Kit Raspberry Pi4
 - Lautsprecher
-- Logitech c270 Webcam (als Mikrofon)
+- Logitech c270 Webcam (verwendet als Mikrofon)
 - Tastatur
-- Display
-- LAN-Kabel
+- Display/Monitor
+- LAN Anschluss/Kabel
 
-Zu anfang wird der Raspberry Pi angeschlossen und die weitere Hardware (Mikrofon in form von der Webcam, Tastatur, Display usw.)
-Nachdem der Raspberyy Pi strom hat und die nötige Hardware angeschlossen wurde kann mit der Einrichtung begonnen werden.
-Auf dem Gerät sollte ein Mycroft Picroft Image vorinstalliert sein. Falls dies nicht der Fall sein sollte oder man hierzu weitere Informationen
-benötigt findet man dieser auf dieser Seite :https://mycroft-ai.gitbook.io/docs/using-mycroft-ai/get-mycroft/picroft
+Zu Beginn wird der Raspberry Pi an die Spannungsversorgung angeschlossen und die o.a. Hardware wie Mikrofon/Webcam, Tastatur, Display, etc. amgeschlossen.
+Nachdem der Raspberyy Pi gestartet und die benötige Hardware angeschlossen wurde, kann mit der Einrichtung der Software begonnen werden.
+Auf dem Pi4 sollte das Mycroft Picroft Image vorinstalliert sein. Falls dies nicht der Fall, muss dies im nächsten Schritt getan werden. 
+Weitere Informationen zur Mycroft Installation findet man dieser auf dieser Seite: https://mycroft-ai.gitbook.io/docs/using-mycroft-ai/get-mycroft/picroft
 
-Beim Starten des Geräts sollte dieses mit der Installation beginnen. Dabei folgt man einfach den Instruktionen auf dem Bildschirm
-und wählt beispielsweise Audio output und input aus usw. Dabei ist wichtig das der Raspberry Pi eine stabile Internetverbidung hat.
-Bei erneuten Problemen oder Fragen kann man erneut auf die vorhin erwähnte Website zugreifen: https://mycroft-ai.gitbook.io/docs/using-mycroft-ai/get-mycroft/picroft
-Hier wird auch die Einrichtung nochmals durchgegangen.
+Beim Starten des Pi4 sollte die Mycroft Installation automatisch starten. Dabei folgt man einfach den Anweisungen dem Bildschirm
+und wählt beispielsweise Audio Output, Audio Input, etc. aus. Dabei zu beachten, dass der Raspberry Pi eine stabile Internetverbidung hat.
+Bei Problemen oder Fragen kann man auf die Dokumentation der o.a. Website zugreifen: https://mycroft-ai.gitbook.io/docs/using-mycroft-ai/get-mycroft/picroft
+Hier wird auch Einrichtung nochmals Schritt für Schritt erläutert.
 
-Nach der Einrichtung sollte man im mycroft-cli-client screen sein. 
-Es besteht die Möglichkeit bei Mycroft im  per Sprach- oder Tastatureingabe Kommandos zu geben. So kann man 
-Mycroft mit dem Befehl "Hey Mycroft, what's your IP adress?" einem die IP Adresse des Geräts ausgeben. Hierdurch hat man die Möglichkeit
-per SSH verbindung mit den eigenen Rechner auf den Pi zuzugreifen. Dies ist keine notwendigkeit erspart jedoch etwas an Aufbau und erleichtert
-das Arbeiten am eigenen Skill im späteren Verlauf. 
+Nach der Einrichtung sollte man im mycroft-cli-client Screen landen.
+Es besteht die Möglichkeit, bei Mycroft per Sprach- oder Tastatureingabe Kommandos einzugeben. 
+So kann man beispielsweise Mycroft mit dem Befehl "Hey Mycroft, what's your IP adress?" die IP Adresse des Geräts ausgeben lassen. 
+Mit dieser IP-Adresse des Pi4 kann man per SSH Shell eine Verbindung zum Raspberry aufbauen
+Natürlich kann man auch per Tastatur und separratem Bildschirm mit dem Pi4 arbeiten. Eine remote SSH Verbindung ist deutlich einfacher und komfortabler, das Mycroft ja keine graphische Benutzeroberfläche bereitstellt.
 
-Den Mycroft CLI client kann man starten mit dem Befehl mycroft-cli-client und mit STRG +C oder ":exit" verlassen. Das Gerät sollte man
-nicht einfach per Schalter oder durch rausziehen des Steckers ausschalten. Zum Herunterfahren kann man in der Shell per "sudo shutdown now" eingeben
-oder auch "sudo reboot" falls man nur einen Neustart benötigt.
+Den Mycroft CLI (Command Line Interface) Client kann man mit dem Befehl mycroft-cli-client starten  und mit CTRL-C bzw. dem Kommando ":exit" jederzeit verlassen. 
+Das Gerät sollte man nicht einfach per Netzschalter oder durch herrausziehen des Netzsteckers ausschalten, da es sonst zu schweren Fehlern des Dateisystems führen kann. Zum Herunterfahren kann man in der Shell das Kommando "sudo shutdown now" eingeben, um den Pi4 sauber herunterzufahren.
+Mit dem Kommando "sudo reboot" lässt sich das Gerät neu starten.
 
-Im CLI client können dann die installierten Skills genutzt werden um beispielsweise Wiki abfragen zu starten oder ähnliches. Man kann auch
-per Sprachbefehl oder Tastatur eingabe Skills installieren, wenn diese im Skills Marketplace vorhanden sind.
+Über den CLI Client können die installierten bzw. konfigurierten Skills genutzt werden. Beispielweise kann der vorinstallierte Skill "Wiki" genutzt werden, um eine Wikipedia Abfrage abzusetzen. Per Sprachbefehl oder Tastatureingabe lassen sich auch Skills über den Skills Marketplace suchen und installieren.
 
 # Skills installieren
 
-Mycroft selbst empfiehlt die Nutzung von mycroft-msk create. Dies kann auf dem Gerät direkt ein neuen Skill erstellen. Die Abfolge und die Nutzung dieses Befehls
-werden auf dieser Website nochmals genauer erklärt:
-https://mycroft-ai.gitbook.io/docs/skill-development/introduction/your-first-skill
+Zur Erstellung bzw. Installation eines Skills empfihelt Mycroft die Nutzung von mycroft-msk create. 
+Mit diesem Befehl kann auf dem Gerät direkt ein neuer Skill erstellt werden.
+Die genaue Ausführung und Parametrisierung des Befehls wird auf dieser Mycroft Seite im Detail erläutert (https://mycroft-ai.gitbook.io/docs/skill-development/introduction/your-first-skill)
 
-Den Aufbau eines Skills kann man hier nachschauen:https://mycroft-ai.gitbook.io/docs/skill-development/skill-structure
-Falls Fragen bezüglich des Python Codes aufkommen oder den Verzeichnissen wie dem Locale Verzeichniskann hier nachgeschlagen werden.
+Den Aufbau eines Skills kann man hier nachlesen: https://mycroft-ai.gitbook.io/docs/skill-development/skill-structure
+In diesem Kapitel werden auch Fragen zum Python Code beantwortet und die lokale Verzeichnissstruktur erklkärt.
 
-Ein auf diese Weise erstelltes Template befindet sich im MI-GitLab. Dieses kann man forken und mit mycroft-msm install "https://gitlab.mi.hdm-stuttgart.de/Pfad/zum/eigenen/forked/skill"
-Die skills befinden sich im Verzeichnis /opt/mycroft/skills/"Beispielskill". In diesem Verzeichnis können dann auch Änderungen bzw Updates per git pull herunter gezogen werden.
-Mit dem git pull pefehl werden jedoch nicht die dependencies auf dem Gerät installiert. Dies muss man manuell mit beispielsweise mycroft-pip oder apt-get erledgit werden.
+Ein auf diese Weise erstelltes Template befindet sich im MI-GitLab. 
+Dieses Template lässt sich forken und mit dem Kommando mycroft-msm install "https://gitlab.mi.hdm-stuttgart.de/Pfad/zum/eigenen/forked/skill" installieren.
+Die Skills befinden sich im Verzeichnis /opt/mycroft/skills/<beispiel_skill>. In diesem Verzeichnis können dann auch Änderungen bzw Updates per git pull Kommando  heruntergeladen werden.
+Mit dem Befehl git pull werden jedoch nicht die Abhängigkeiten (dependencies) auf dem Gerät installiert. Dies müssen manuell mit mycroft-pip oder apt-get aufgelöst werden.
 
 # Eigener Kalender Skill
 
-Aufgabe ist es einen Skill zu entwickeln welcher Termine eines nextcloud-Systems verwaltet. Es sollen per Sprachkommando neue Termine angelegt werden,
-bestehende Termine umbenannt werden und auch Termine gelöscht werden können.
+In diesem Projekt gilt es einen eigenen Skill zu entwickeln, der Termine eines CalDAV basierten Kalenders eines Nextcloud Systems verwalten kann.
+Über Sprachkommandos soll es dem Benutzer möglich sein, neue Termine anzulegen und bestehende Termine umzubennen oder diese zu löschen.
 
-Für die Kommunikation mit dem Kalender wurde caldav verwendet. Caldav kann man einfach per "mycroft-pip install caldav" auf dem Gerät installieren.
-Es könnte, wie in meinem Fall ein Fehler auftreten. "ImportError: libxslt.so.1: cannot open shared object file: No such file or directory"
-Dies kann bei der Verwendung von der caldav library auftreten. Mir hat in diesem Fall "sudo apt-get install libxslt-dev" geholfen den Fehler zu beheben.
-Am besten greift man auch auf die logs des skills zu um nach den Fehlermeldungen zu suchen. Die Logs sollten in diesem Verzeichnis sich befinden: /var/log/mycroft/
-Weitere Infos zu den log files findet man hier: https://mycroft-ai.gitbook.io/docs/using-mycroft-ai/troubleshooting/log-files
+Die Kommunikation mit dem Nextcloud Kalender wird über das CalDAV Protokoll realisiert.
+Hierzu muss das Caldav Modul auf dem Pi4 installiert werden: mycroft-pip install caldav.
+Dabei kann es natürlich zu Fehlern kommen. In meinem Fall trat der Fehler "ImportError: libxslt.so.1: cannot open shared object file: No such file or directory" auf. 
+Dies kann bei der Verwendung von der caldav Bibliothek durchaus auftreten. 
+Mir hat in diesem Fall die nachträgliche Installation der XSLT Bibliothek "sudo apt-get install libxslt-dev" geholfen.
 
-Für die nextcloud Daten des Users gibt es die Möglichkeit 2 Files zu erstellen mit dem Usernamen und Passwort welche mithilfe vom Code extrahiert werden können.
-Ich habe den Versuch unternommen die Daten aus der settingsmeta.yaml zu lesen. Den Code dazu habe ich schon geschrieben jedoch entnimmt es die Daten nicht aus der settingsmeta.yaml
-sondern die Values welche ich in der __init__.py stehen habe. Die Informationen mit denen ich gearbeitet habe befinden sich auf dieser Website: https://mycroft-ai.gitbook.io/docs/skill-development/skill-structure/skill-settings
+Zur Fehleranalyse sollte man sich immer die System Logs anzeigen lassen, da dies bei der Lokalisierung und Behebung der Fehler hilft.
+Mycroft gibt seine Status und Fehler in vier Dateien aus, die sich im Verzeichnis /var/log/mycroft befinden: audio.log, bus.log, skills.log, und voice.log
+In der Datei skills.log werden Fehler ausgegeben, die mit der Installation und Nutzung der Skills zu tun haben.
+Weitere Infos zu den log files findet man in der Dokumentation: https://mycroft-ai.gitbook.io/docs/using-mycroft-ai/troubleshooting/log-files
+
+Damit sich Mycroft beim NextCloud Service des Benutzers authorisieren kann, müssen sowohl Benutzername (login) als auch das Kennwort übermittelt werden. Grundsäzlich stehen dabei zwei Methoden zur Auswahl:
+(a) Authorisierung über lokale Dateien: Hier werden die Zugangsdaten des Benutzers (login und password) aus einer selbst angelegten Datei herausgelesen
+(b) Benutzername und Kennwort werden aus den JSON Settings herausgelesen.
+Sicherheithinweis: In beiden Fällen wird das Kennwort als Klartext in den Dateien abgespeichert.
+Beide Login Informationen werden über den Python Code extrahiert.
+
+In meinem Code haben ich beide Informationen aus der JSON Settings Datei augelesen (__init__.py)
+
+Dabei habe ich micht an die Dokumentation auf der folgenden Seite angelehnt: https://mycroft-ai.gitbook.io/docs/skill-development/skill-structure/skill-settings
 
 # Funktionen des Kalenders
 
-Hier kann erneut auf die Website: https://mycroft-ai.gitbook.io/docs/skill-development/skill-structure
-verwiesen werden
-Es werden hier die Intent handler und weitere Methoden erklärt.
+Hier kann erneut auf die Website: https://mycroft-ai.gitbook.io/docs/skill-development/skill-structure verwiesen werden.
+Es werden hier die Intent Handler und weitere Methoden erklärt.
 
-- def log_in (self): Diese Funktion versucht, sich mit einem Nextcloud-Kalenderservice mithilfe des CalDAV-Protokolls anzumelden.
-Zuerst nutzte ich hierbei die lokalen Datein "userNameFile.txt" und "passwFile.txt" welche die Login Informationen fürs Nextcloud-System enthalten.
-Da diese Lösung zwar funktionierte jedoch nicht optimal war wurde sie auskommentiert und versucht die Daten in der settingsmeta.yaml abzuspeichern und daraufhin
-von dort auszulesen. Dies funktioniert jedoch nicht. Die Werte habe ich manuell angegeben sie werden also nicht aus der settingsmeta.yaml entnommen.
+- def log_in (self): Diese Funktion versucht sich mit einem NextCloud Calender Service über das CalDAV-Protokoll anzumelden.
+abzulegen. Obwohl diese Lösung funktioniert, habe ich den Programmcode später auskommentiert und durch eine andere Variante ersetzt.
+In der 2. Version habe ich die Login Informationen "user" und "password" aus der vorhandenen settingsmeta.yaml Datei ausgelesen. 
+Somit musste keine zusätzliche Datei angelegt werden. Allerdings hatte ich - obwohl ich die Dokumentation ausführlich studiert habe - keinen Erfolg beim Auslesen gehabt. Ich vermute, dass es an Pfadeinstelungen der YAML Datei lag.
+In der letzten Variante habe ich versucht, die Parameter aus der automatisch generierten JSON Datei auszulesen.
 
-- def sort_events(self): Hier wird zunächst die aktuelle Zeit abgerufen. Anschließend werden alle Termine aus dem Kalender abgerufen und durchlaufen
-welche dann einer Liste hinzugefügt werden und mit der sort methode sortiert werden. Nach Sortierung wird unterteilt zwischen Terminen die in der Zukunft stattfinden und Terminen
-welche zum aktuellen Datum stattfinden (results_today, results_future).
+- def sort_events(self):  In dieser Funktion wird zunächst die aktuelle Zeit abgefragt. Anschließend werden alle Termine aus dem Kalender extrahiert und durchlaufen, die 
+dann einer Liste hinzugefügt werden. Anschliessend werden die ausglesenen Termin chronologisch sortiert. Nach der Sortierung werden die Termine in zwei Blöcke unterteilt: (a) Termine heute, und (b) Termine in der Zukunft, in den zwei Arrays results_today und results_future.
 
-- def get_all_events(self): Hier werden alle Terminen aus dem Kalender abgerufen. Es werden die sortierten Termineinträge aufgerufen. Anschließend wird die aktuelle Zeit
-wieder abgerufen um die Termine herauszufiltern welche aktuell beginnen. Es wird dann geprüft ob die Termine aktuell stattfinden oder in der Zukunft, vergangene Termine interessieren uns in diesem Fall nicht.
-Je nachdem ob dann ein Termin gefunden wurde oder nicht wird der passende Dialog abgerufen.
+- def get_all_events(self): In dieser Funktion werden alle Terminen aus dem Kalender abgerufen. Es werden die sortierten Termineinträge aufgerufen. Anschließend wird die aktuelle Zeit ermittelt, um die Termine herauszufiltern die zum aktuell anstehen. Anschließend wird geprüft, ob die Termine gerade anstehen oder erst in der Zukunft anstehen. Verstrichene Termine interessieren uns in diesem Fall nicht. Je nachdem, ob dann ein Termin gefunden wurde oder nicht, wird der passende Dialog abgerufen.
 
-- def create_event(self, message): Hier wird ein Termin (event) erstellt. Dabei wird der Name abgefragt und Zeit des Termins. Zuerst wird Startzeit und dann Ende des Termins abgefragt.
-Es wird auch wieder überprüft ob die Zeitangaben logsich sind (Termin liegt in der Gegenwart oder Zukunft).
+- def create_event(self, message):  In dieser Funktion wird ein neuer Termin (event) erstellt. Dabei wird nach dem Name und der Zeit des Termins gefragt. Zuerst wird die Startzeit und anschliessend die Endezeit des Termins abgefragt. Es wird auch wieder überprüft, ob die Zeitangaben plausibel sind (Termin liegt in der Gegenwart oder Zukunft).
 
-- def get_events_for_date(self, message): Hier wird nach Input eines Datums nach den Terminen gesucht welche mit dem Datum übereinstimmen und diese Termine werden daraufhin ausgegeben.
-Falls kein Termin für den angegebenen Zeitraum gefunden wurde wird entsprechend die Antwort ausgegeben no events on date.
+- def get_events_for_date(self, message): In dieser Funktion wird nach Eingabe eines Datums nach den entsprechenden Terminen gesucht. Hierzu muss das eingegebene Datum mit der Startdatum des Termins übereinstimmen, damit es in die Ergebnisliste aufgenommen und ausgegeben wird.
+Falls kein Termin für den angegebenen Zeitraum gefunden wurde, wird eine entsprechende Rückmeldung ausgegeben (no events on date).
 
-- def get_next_event(self): In dieser Funktion wird einfach der nächste zeitlich dem aktuellen Datum folgende Termin geholt und zurück gegeben.
-Hierzu schaut er sich die Termine am heutigen Tag an und wenn nichts gefunden wird, wird der nächste Tag angeschaut.
+- def get_next_event(self): In dieser Funktion wird der nächste zeitlich anstehende Termin (aktuelles Datum) extrahiert und zurückgegeben.
+Hierzu werden die Termine des aktuellen Tags untersucht und derjenige ausgegeben, der an diesem Tag (noch) ansteht.
 
-- def search_for_event(self, target_event): Diese funktion ist wichtig für das Löschen oder Umbennenen von Terminen. Hier wird nach einem bestimmten Termin
-gesucht per Name.
+- def search_for_event(self, target_event): Diese Funktion ist für das Löschen bzw. Umbennenen von Terminen zuständig. Es wird nach einem bestimmten Termin
+gesucht, der mit dem eingegebenen Namen übereinstimmt.
 
-- def remove_event(self, message): Hier wird nach einem Termin gesucht mithilfe der vorherigen Funktion. Daraufhin wird falls der Name gefunden wurde
-eine Abfrage gestartet ob der Termin auch wirklich gelöscht werden soll. Je nach "Yes" oder "No" wird der Termin gelöscht oder eben nicht und eine entsprechende Nachricht wird abgespielt.
+- def remove_event(self, message): Diese Funktion sucht nach einem Termin, der mit dem eingegebenen Namen übereinstimmt. Wenn ein Termin mit dem übergebenen Namen übereinstimmt, wird dieser aus dem Kalender gelöcht. Zvor wird nachgefagr, ob der Benutzer den gefundenen Kalendereintrag wirklich löschen möchte (yes) oder nicht (no).
 
-- def rename_event(self, message): Hier wird auch wieder nach dem Termin per Name abgefragt und gesucht um diesen dann umzubennenen. Der Nutzer
-kriegt auch bei erfolgreicher umbennenung eine Nachricht oder bei einem Fehler auch entsprechend eine Nachricht
+- def rename_event(self, message): Auch in dieser Funktion wird zunächste nach einem Kalendereintrag gesucht, der mit dem eingegebenen Namen übereinstimmt. 
+Wenn ein Termin mit dem übergebenen Namen übereinstimmt, wird dieser nach Abfrage des neuen Namens umbenannt. Der Benutzer bekommt nach bei erfolgreicher Umbenennung eine ensprechende Bestätigung, ansonsten eine Fehlermeldung.
 
-- def __init__(self): Das ist der Konstruktor
+- def __init__(self): Das ist der Konstruktor und dient zu Initialisierung der Klasse
 
-- def initialize(self): Wird nach konstruktion des Skills abgerufen. Hier wird der Login aufgerufen und die lokale Zeitzone gesetzt
+- def initialize(self): Diese Funktion wird nach dem Konstruktor aufgerufen. Hier wird die Login Funktion augerufen und u.a. auch die lokale Zeitzone gesetzt.
 
-- def create_skill(): Gibt uns unseren erstellten Skill zurück
+- def create_skill(): Gibt den erstellten Skill zurück
 
 # Fehler und Probleme
 
-Eines der größten Probleme welche ich bei diesem Projekt hatte war das ich den Umfang unterschätzt habe und dachte ich könnte die Aufgaben alleine erledigen.
-Dies führte dazu das ich neben den anderen Projekten und Abgaben im Studium oft hinterher hing und probleme mit dem Zeitmanagement hatte.
-Zudem fiel es mir oft schwer Probleme allein zu lösen. Die Wiki half dabei jedoch oft gut aus.
+Eines der größten Probleme, auf die ich bei diesem Projekt gestoßen bin, war dass ich den Umfang der Aufgabe unterschätzt hatte und dachte, ich könne die Aufgabe alleine erledigen. Das hat dazu geführt, dass ich neben den anderen Projekten und Abgaben im Semester oft zeitlich hinterher war und Probleme mit meinem Zeitmanagement hatte. Zudem fiel es mir oft schwer, Probleme im Alleingang zu lösen. Die informative Wiki Seite hat mir dabei stets geholfen.
 
-Oftmals fehlte eine zweite Meinung oder eine weitere Angehensweise. Hier versuchte ich andere vorhandene Skills als Beispiele zu nehmen und schaute wie diese Implementiert wurden.
+Oftmals fehlte eine zweite Meinung oder eine alternative Herangehensweise. Hier versuchte ich, andere vorhandene Skills als Vorlage zu nutzen und schaute wie diese implementiert wurden.
 
-Ein weiteres Problem was ich hatte war das ich zu spät die Log Files überprüft habe bei Fehlermeldungen. Ich habe so viel Zeit verloren da ich die Probleme 
-nicht lösen konnte da ich nicht wusste wo der Fehler lag. Nachdem ich mir die Log files angeschaut habe mit dem Befehl tail -f /var/log/mycroft/skills.log
-konnte ich viel schneller meine Probleme lösen.
+Ein weiteres Problem das ich hatte war, dass ich erst spät Log Files kennegelernt haben, um hilfreiche Hinweise zur Fehlerbehebung zu bekommen.
+Ich habe so viel Zeit verloren, da ich die Probleme nicht unmittelbar und allein lösen konnte. Nachdem ich mir die Log Files angeschaut hate (mit dem Befehl tail -f /var/log/mycroft/skills.log) konnte ich viel schneller die Lösung der Fehler angehen.
 
-Die in der Wiki beschriebenen Probleme die oft auftreten sind bei mir ebenfalls aufgetretetn diese konnte ich jedoch dank der Wiki relativ schnell lösen.
+Die in der Wiki beschriebenen häufig auftretenden Probleme sind auch bei mir augetreten, so dass diese Dokumentation gut weitergeholfen hat.
 
-Ein weiteres Problem das ich hatte war das ich auf die harte Tour lernen musste das Linux beim Löschen von Dateien nicht verzeiht. Ich habe dadurch den Skill gelöscht
-gehabt und einige Probleme bei der reinstallation gehabt. So konnte ich einige Zeit das mycroft-cli-client nicht starten und musste den Raspberry Pi oft rebooten.
+Eine weitere Herausforderung die ich hatte war, dass ich auf die harte Tour lernen musste, dass es beim Arbeiten mit der Linux Shell keinen Papierkorb gibt und somit gelöschte Dateien unwiderruflich verloren gehen. Aus Versehen hatte ich meinen fertiggestellten Skill mit dem Kommando "rm" gelöscht! Somit konnte ich den mycroft-cli-client nicht mehr starten starten. Den gelöschten Skill musste erneut instalieren und testen.
 
-Auch bei der Implementierung hat es oft mehrere Anläufe gebraucht und es mussten ständig optimierungen vorgenommen werden. 
-
-
+Auch die Implementierung war zeitaufwendig, da ich jede einzelne Funktion zum Zugriff auf den Kalender testen musste. Dabei habe ich sowohl die Mycroft Befehlszeile als auch die Spracheingabe genutzt. Auch hier haben mir Vorlagen zu den allgeminen CalDAV Kalenderfunktionen geholfen.
 
 
