@@ -13,8 +13,7 @@ class SiCalendarYekta(MycroftSkill):
         
         # this is my deployement path not used currently but possible
         userFilesPath = "/opt/mycroft/skills/si-calendar.yektaleon/userFiles/"
-        
-        """        
+                     
         # for some reason the attributes are not read from the settings file therefore i provided default values here
         self.username = self.settings.get('username')
         # self.username = self.settings.get('username', 'yk020@hdm-stuttgart.de')
@@ -23,12 +22,10 @@ class SiCalendarYekta(MycroftSkill):
         self.password = self.settings.get('password')
         # self.password = self.settings.get('password', 'SIPasswortyk020')
         if not self.password:
-           self.log.info('Failed to retrieve password')
-       """    
+           self.log.info('Failed to retrieve password')    
            
         """
         With this part you could read local files which have the username and password safed
-        """
         # this file stores my nextcloud username information
         userName_file = open("/opt/mycroft/skills/si-calendar.yektaleon/userFiles/userNameFile.txt", "r")
         # this file stores my nextcloud password information as plaintext !!!
@@ -39,8 +36,9 @@ class SiCalendarYekta(MycroftSkill):
         # close both files
         userName_file.close()
         passw_file.close()
+        """
 
-        
+        """ 
         
          # Create nextcloud url string
         url = "https://" + username + ":" + password + \
@@ -51,7 +49,7 @@ class SiCalendarYekta(MycroftSkill):
         # Create nextcloud url string
         url = "https://" + self.username + ":" + self.password + \
               "@nextcloud.humanoidlab.hdm-stuttgart.de/remote.php/dav"
-        """      
+         
 
         # open connection to calendar
         principal = caldav.DAVClient(url).principal()
