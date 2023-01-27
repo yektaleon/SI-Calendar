@@ -1,6 +1,10 @@
 # SI - Gruppe 5 Yekta Leon Kücük
 
-# Kolloquium
+# Kolloquium 
+
+Dokumentation Mycroft-Projekt
+
+Aufgabe dieses Projekts war die Konzeption und Erstellung eines eigenen Mycroft-Skills zum verwalten eines CalDAV basierten Kalenders, der von einem NextCloud System gehosted wird.
 
 # Einleitung
 
