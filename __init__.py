@@ -12,7 +12,7 @@ class SiCalendarYekta(MycroftSkill):
     def log_in(self):
         
         # this is my deployement path not used currently but possible
-        userFilesPath = "/opt/mycroft/skills/si-calendar.yektaleon/userFiles/"
+        # userFilesPath = "/opt/mycroft/skills/si-calendar.yektaleon/userFiles/"
                      
         # for some reason the attributes are not read from the settings file therefore i provided default values here
         self.username = self.settings.get('username')
